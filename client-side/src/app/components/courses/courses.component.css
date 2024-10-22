@@ -1,0 +1,193 @@
+/* General Styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Add Course Button Styles */
+.button-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.add-course-button {
+  padding: 14px 28px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff; /* Soft Blue */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-course-button:hover {
+  background-color: #0069d9;
+  transform: translateY(-3px);
+}
+
+/* Courses Container */
+.courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  padding: 30px;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #007bff;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Course Header */
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+}
+
+.course-credits {
+  font-size: 16px;
+  font-weight: 600;
+  color: #5a6268;
+}
+
+/* Course Details */
+.course-info {
+  margin: 20px 0;
+}
+
+.course-code,
+.course-description {
+  margin: 10px 0;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Action Buttons */
+.course-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.action-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.add-review-button {
+  background-color: #17a2b8; /* Info Blue */
+}
+
+.add-review-button:hover {
+  background-color: #138496;
+}
+
+.edit-course-button {
+  background-color: #ffc107; /* Warning Yellow */
+}
+
+.edit-course-button:hover {
+  background-color: #e0a800;
+}
+
+.delete-course-button {
+  background-color: #dc3545; /* Danger Red */
+}
+
+.delete-course-button:hover {
+  background-color: #c82333;
+}
+
+/* Toggle Reviews Button */
+.toggle-reviews-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.toggle-reviews-button:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+/* Reviews Container */
+.reviews-container {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.reviews-title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.reviews-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.review-item {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.review-author,
+.review-date,
+.review-rating,
+.review-comment {
+  margin: 6px 0;
+  color: #666;
+}
+
+/* Enrollments */
+.enrollments {
+  margin-top: 15px;
+  font-weight: 700;
+  color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .courses-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+

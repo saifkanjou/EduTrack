@@ -1,0 +1,93 @@
+<div class="add-course-container">
+  <h2>Add New Course</h2>
+
+  <form (ngSubmit)="save()">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input
+        type="text"
+        id="title"
+        [(ngModel)]="newCourse.title"
+        name="title"
+        placeholder="Enter course title"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="code">Code:</label>
+      <input
+        type="text"
+        id="code"
+        [(ngModel)]="newCourse.code"
+        name="code"
+        placeholder="Enter course code"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        [(ngModel)]="newCourse.description"
+        name="description"
+        placeholder="Enter course description"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="credits">Credits:</label>
+      <input
+        type="number"
+        id="credits"
+        [(ngModel)]="newCourse.credits"
+        name="credits"
+        placeholder="Enter course credits"
+        required
+        min="1"
+      />
+    </div>
+
+    <div class="form-actions">
+      @if(isUpdate){
+      <button type="submit" class="submit-button">Update Course</button>
+      } @else{
+      <button type="submit" class="submit-button">Add Course</button>
+      }
+      <button type="button" class="cancel-button" routerLink="/">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<!-- Modal for Unauthenticated Users -->
+<div
+  class="modal fade"
+  id="loginAlertModal"
+  tabindex="-1"
+  aria-labelledby="loginAlertModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginAlertModalLabel">Action Required</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        You must be logged in to order a service. Please log in or sign up to
+        continue.
+      </div>
+      <div class="modal-footer">
+        <a href="/login" class="btn btn-primary">Log In</a>
+        <a href="/signup" class="btn btn-secondary">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>

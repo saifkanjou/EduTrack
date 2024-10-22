@@ -1,0 +1,80 @@
+<!-- Add Course Button -->
+<div class="button-container">
+  <button class="add-course-button" routerLink="/add-course">
+    Add New Course
+  </button>
+</div>
+
+<div class="courses-container">
+  <div *ngFor="let course of coursesList; let i = index" class="course-card">
+    <div class="course-header">
+      <h3 class="course-title">{{ course.title }}</h3>
+
+      <!-- Toggle Reviews Button -->
+      <button class="toggle-reviews-button" (click)="toggleReviews(i)">
+        {{ showReviews[i] ? "Hide Reviews" : "Show Reviews" }}
+      </button>
+    </div>
+
+    <div class="course-info">
+      <p class="course-code"><strong>Code:</strong> {{ course.code }}</p>
+      <p class="course-credits">
+        <strong>Credits:</strong> {{ course.credits }}
+      </p>
+      <p class="course-description">{{ course.description }}</p>
+    </div>
+
+ <!-- Action Buttons: Add Review, Edit Course, Delete Course -->
+<div class="course-actions">
+  <!-- <button class="action-button add-review-button">Add Review</button> -->
+  <button class="action-button edit-course-button" (click)="updateCourse(course.courseId)">Edit Course</button>
+  <button class="action-button delete-course-button" (click)="deleteCourse(course.courseId)">Delete Course</button>
+</div>
+
+
+    <!-- Reviews List: Conditionally displayed based on showReviews[i] -->
+    <div *ngIf="showReviews[i]" class="reviews-container">
+      <p class="reviews-title"><strong>Reviews:</strong></p>
+      <ul class="reviews-list">
+        <li *ngFor="let review of course.reviews" class="review-item">
+          <p class="review-author">
+            <strong>Reviewed by:</strong> {{ review.createdBy }}
+          </p>
+          <p class="review-date">
+            <strong>Date:</strong> {{ review.createdOn | date : "short" }}
+          </p>
+          <p class="review-rating">
+            <strong>Rating:</strong> {{ review.rating }}/5
+          </p>
+          <p class="review-comment">
+            <strong>Comment:</strong> {{ review.content }}
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- <p class="enrollments">
+      <strong>Enrollments:</strong> {{ course.enrollments?.length || 0 }}
+    </p> -->
+  </div>
+</div>
+
+
+<!-- Modal for Unauthenticated Users -->
+<div class="modal fade" id="loginAlertModal" tabindex="-1" aria-labelledby="loginAlertModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginAlertModalLabel">Action Required</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          You must be logged in to order a service. Please log in or sign up to continue.
+        </div>
+        <div class="modal-footer">
+          <a href="/login" class="btn btn-primary">Log In</a>
+          <a href="/signup" class="btn btn-secondary">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
